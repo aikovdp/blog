@@ -1,3 +1,7 @@
+---
+const { hostname }= Astro.url
+---
+
 <nav class="p-4 pl-6 border-b-2 border-gray-900/10 dark:border-gray-950/50 sticky top-0 bg-gray-50 dark:bg-gray-900">
-    <a class="font-mono text-gray-900 dark:text-white font-bold text-2xl hover:opacity-60 transition-opacity" href="/">aiko.wtf</a>
+    <a class="font-mono text-gray-900 dark:text-white font-bold text-2xl hover:opacity-60 transition-opacity" href="/">{hostname}</a>
 </nav>
