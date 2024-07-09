@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+const { title } = Astro.props.frontmatter 
 ---
-<BaseLayout>
+<BaseLayout title={title}>
   <article class="py-8 px-4 prose-teal prose max-w-prose mx-auto dark:prose-invert">
     <slot />
   </article>
