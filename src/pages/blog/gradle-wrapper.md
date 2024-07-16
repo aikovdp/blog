@@ -5,6 +5,8 @@ layout: ../../layouts/BlogLayout.astro
 
 # Should you add the Gradle Wrapper to your repository?
 
+## Table of Contents
+
 ## What is the Gradle Wrapper?
 
 The Gradle Wrapper is a script that automatically runs the required Gradle version on the host machine, and downloads it if it's not already present. This drastically simplifies the installation of Gradle versions on developer machines and CI, and ensures everyone working on the same repository is using the same version of Gradle. As a result, the entry bar for newcomers to the project is lowered significantly, and builds are more reliable and reproducible. More information is provided in [Gradle's documentation](https://docs.gradle.org/current/userguide/gradle_wrapper.html).
@@ -119,6 +121,8 @@ The Wrapper update increased the size of our git repository by 8 kilobytes, desp
 ## Conclusion
 
 You can safely keep the Wrapper JAR in your git repository. Provided you follow the recommended stepts to verify the integrity of your Wrapper, storing it is completely safe and tamper-proof, and its storage impact is absolutely minimal in every case.
+
+---
 
 ## Further Reading
 
