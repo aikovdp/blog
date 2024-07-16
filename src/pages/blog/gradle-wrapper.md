@@ -35,7 +35,25 @@ The two script files delegate their work to the Wrapper JAR, which in turn provi
 The Gradle Wrapper scripts do **not** work without the Wrapper JAR present in the repository. Git is notoriously bad at efficiently handling binary files however, and executables are prone to tampering if they aren't properly verified. So should you be checking your Wrapper JAR into your repository?
 
 ### Wrapper Verification
-***TODO***
+Since a JAR file doesn't contain plain text, it can't easily be reviewed through simple git diffs. Contributions that claim to update a project's Wrapper JAR could replace it with a malicious file, which could then execute any code the next time the Wrapper is used. To mitigate attacks like these, Gradle has created an official GitHub Action which verifies the integrity of the Wrapper JAR. It can easily be used in a simple workflow.
+```yaml
+name: "Validate Gradle Wrapper"
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validation:
+    name: "Validation"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gradle/actions/wrapper-validation@v3
+```
+With this workflow, any pushed commit or pull request will automatically be checked for unknown Wrappper JARS.
+
+Gradle also publishes SHA-256 hashes of all releases, including those of the Wrapper JARS, so they can be verified manually if using the official GitHub Action isn't an option. For more information, check [their documentation](https://docs.gradle.org/current/userguide/gradle_wrapper.html#wrapper_checksum_verification).
 
 ### Repository size impact
 For Gradle 8.8, the Wrapper JAR is only 44KB in size. That's more than twice as small as the size of an empty git repository (measuring about 116KB as of git version 2.34.1).
