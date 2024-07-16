@@ -14,7 +14,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<BaseLayout title={entry.data.title}>
+<BaseLayout title={entry.data.title} description={entry.data.description}>
   <article
     class="prose prose-teal mx-auto max-w-prose px-4 py-8 dark:prose-invert"
   >
