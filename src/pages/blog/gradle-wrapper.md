@@ -101,5 +101,5 @@ The Wrapper update increased the size of our git repository by 8 kilobytes, desp
 You can safely keep the Wrapper JAR in your git repository. Provided you follow the recommended stepts to verify the integrity of your Wrapper, storing it is completely safe and tamper-proof, and its storage impact is absolutely minimal in every case.
 
 ## Further Reading
-- There is an open feature request on Gradle's GitHub to automatically download the Wrapper JAR using only the command-line scripts: https://github.com/gradle/gradle/issues/11816
+- There is an [open feature request]( https://github.com/gradle/gradle/issues/11816) on Gradle's GitHub to automatically download the Wrapper JAR using only the command-line scripts.
 - Inspired by the Gradle Wrapper, Apache has also created an official [Maven Wrapper](https://maven.apache.org/wrapper/index.html), providing similar functionality. It does however allow automatically downloading the Wrapper JAR if it's not already present in the repository, unlike Gradle's implementation where the command-line scripts can't run at all without the Wrapper JAR.
