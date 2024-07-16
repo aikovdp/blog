@@ -1,6 +1,6 @@
 ---
 title: Should you add the Gradle Wrapper to your repository?
-layout: ../../layouts/BlogLayout.astro
+date: 2024-07-17
 ---
 
 # Should you add the Gradle Wrapper to your repository?
