@@ -4,8 +4,8 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: 'Inter',
-				mono: 'Space Mono'
+				sans: ['Inter', 'system-ui'],
+				mono: ['Space Mono', 'ui-monospace', 'monospace']
 			}
 		},
 	},
