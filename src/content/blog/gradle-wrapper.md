@@ -10,7 +10,7 @@ description: What does the Graddle Wrapper do, and should you track it in your G
 
 ## What is the Gradle Wrapper?
 
-The Gradle Wrapper is a script that automatically runs the required Gradle version on the host machine, and downloads it if it's not already present. This drastically simplifies the installation of Gradle versions on developer machines and CI, and ensures everyone working on the same repository is using the same version of Gradle. As a result, the entry bar for newcomers to the project is lowered significantly, and builds are more reliable and reproducible. More information is provided in [Gradle's documentation](https://docs.gradle.org/current/userguide/gradle_wrapper.html).
+The [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html) is a script that automatically runs the required Gradle version on the host machine, and downloads it if it's not already present. This drastically simplifies the installation of Gradle versions on developer machines and CI, and ensures everyone working on the same repository is using the same version of Gradle. As a result, the entry bar for newcomers to the project is lowered significantly, and builds are more reliable and reproducible.
 
 ### Using the Wrapper
 
@@ -44,7 +44,11 @@ The two script files delegate their work to the Wrapper JAR, which in turn provi
 
 ## What's the problem?
 
-The Gradle Wrapper scripts do **not** work without the Wrapper JAR present in the repository. Executables are prone to tampering if they aren't properly verified however, and storing binary files in a Git repository is often considered a bad practice. So should you be checking your Wrapper JAR into your repository?
+The Gradle Wrapper scripts do **not** work without the Wrapper JAR present in the repository. If you execute a Wrapper script without the JAR, it will simply crash. There is an [open feature request](https://github.com/gradle/gradle/issues/11816) on Gradle's GitHub to automatically download the Wrapper JAR using only the command-line scripts, but that hasn't been implemented yet.
+
+Inspired by the Gradle Wrapper, Apache has also created an official [Maven Wrapper](https://maven.apache.org/wrapper/index.html), providing similar functionality. The Maven Wrapper _does_ allow automatically downloading the Wrapper JAR if it's not already present in the repository, unlike Gradle's implementation where the command-line scripts can't run at all without the JAR.
+
+This leaves you with only one option when using the Gradle Wrapper: include the JAR in your repository. But executables are prone to tampering if they aren't properly verified, and storing binary files in a Git repository is often considered a bad practice. **So should you be checking your Wrapper JAR into your repository, and what's the impact?**
 
 ### Wrapper Verification
 
@@ -122,10 +126,3 @@ The Wrapper update increased the size of our git repository by 8 kilobytes, desp
 ## Conclusion
 
 You can safely keep the Wrapper JAR in your git repository. Provided you follow the recommended stepts to verify the integrity of your Wrapper, storing it is completely safe and tamper-proof, and its storage impact is absolutely minimal in every case.
-
----
-
-## Further Reading
-
-- There is an [open feature request](https://github.com/gradle/gradle/issues/11816) on Gradle's GitHub to automatically download the Wrapper JAR using only the command-line scripts.
-- Inspired by the Gradle Wrapper, Apache has also created an official [Maven Wrapper](https://maven.apache.org/wrapper/index.html), providing similar functionality. It does however allow automatically downloading the Wrapper JAR if it's not already present in the repository, unlike Gradle's implementation where the command-line scripts can't run at all without the Wrapper JAR.
