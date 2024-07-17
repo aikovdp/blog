@@ -4,8 +4,6 @@ date: 2024-07-17
 description: What does the Graddle Wrapper do, and should you track it in your Git repository?
 ---
 
-# Should you add the Gradle Wrapper to your repository?
-
 ## Table of Contents
 
 ## What is the Gradle Wrapper?
@@ -121,7 +119,7 @@ $ du .git/objects/
 80      .git/objects/
 ```
 
-The Wrapper update increased the size of our git repository by 8 kilobytes, despite the Wrapper JAR being 44 KB in size. Assuming a similar size increase for each Gradle update, 8KB for each of the 140 Gradle versions released since it's inception in 2008, would still only amount to a little over a megabyte. The Gradle Wrapper's impact on the size of your repository is _very_ minimal.
+The Wrapper update increased the size of our git repository by only 8 kilobytes, despite the Wrapper JAR being 44 KB in size. Assuming a similar size increase for each Gradle update, 8KB for each of the 140 Gradle versions released since it's inception in 2008, would still only amount to a little over a megabyte. The Gradle Wrapper's impact on the size of your repository is _very_ minimal.
 
 ## Conclusion
 
