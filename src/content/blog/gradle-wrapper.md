@@ -2,6 +2,7 @@
 title: Should you add the Gradle Wrapper to your repository?
 date: 2024-07-17
 description: What does the Graddle Wrapper do, and should you track it in your Git repository?
+cover: ./gradle-wrapper.svg
 ---
 
 ## Table of Contents
